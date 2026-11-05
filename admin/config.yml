@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# CMSからアップロードされた画像が保存される場所
+media_folder: "images"
+public_folder: "/images"
+
+# 記事やデータを保存するルール
+collections:
+  # ----------------------------------------------------
+  # 1. 初めての人へ向けたページ（1つの固定ページ）
+  # ----------------------------------------------------
+  - name: "pages"
+    label: "static pages"
+    files:
+      - label: "start here"
+        name: "guide"
+        file: "content/guide.md"
+        fields:
+          - {label: "page title", name: "title", widget: "string"}
+          - {label: "content", name: "body", widget: "markdown"}
+
+  # ----------------------------------------------------
+  # 2. 単語帳（1単語ずつ追加していく形式）
+  # ----------------------------------------------------
+  - name: "dictionary"
+    label: "vocabulary list"
+    folder: "content/dictionary"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "word", name: "title", widget: "string"}
+      - {label: "mean", name: "meaning", widget: "string"}
+      - {label: "pronunciation", name: "pronunciation", widget: "string", required: false}
+      - {label: "example sentence", name: "body", widget: "markdown", required: false}
+
+  # ----------------------------------------------------
+  # 3. ドキュメント（記事を増やしていく形式）
+  # ----------------------------------------------------
+  - name: "documents"
+    label: "document"
+    folder: "content/documents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "document title", name: "title", widget: "string"}
+      - {label: "publication date", name: "date", widget: "date", format: "YYYY-MM-DD"}
+      - {label: "content", name: "body", widget: "markdown"}
