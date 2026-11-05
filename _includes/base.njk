@@ -11,6 +11,9 @@
   <main class="container" style="padding-top: 2rem;">
     <!-- CMSで書いたタイトルや本文がここに自動で差し込まれる -->
     <h1>{{ title }}</h1>
+    {% if proposer %}
+    <p>Proposed by: {{ proposer | escape }}</p>
+    {% endif %}
     {{ content | safe }}
   </main>
 </body>

@@ -7,6 +7,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("pages", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("content/guide.md");
+    return collectionApi.getFilteredByGlob("content/*.md");
   });
 };
