@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,17 @@
 
         <h2>Start Here</h2>
         <p>This page contains the rules for this wiki and useful information for visitors.</p>
+        <ul>
+            <!-- content/pages/ などのフォルダにある記事を自動で一覧にする -->
+            {% for item in collections.pages %}
+            <li>
+                <a href="{{ item.url }}">{{ item.data.title }}</a>
+                {% if item.data.description %}
+                <p style="color: #666; font-size: 0.9rem;">{{ item.data.description }}</p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
         <h3>For Project Members</h3>
         <!-- 管理画面へのリンク -->
         <p><a href="/admin/" role="button">log in</a></p>
