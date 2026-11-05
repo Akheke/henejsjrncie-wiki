@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <!-- Pico CSSの読み込み -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+  <main class="container" style="padding-top: 2rem;">
+    <!-- CMSで書いたタイトルや本文がここに自動で差し込まれる -->
+    <h1>{{ title }}</h1>
+    {{ content | safe }}
+  </main>
+</body>
+</html>
