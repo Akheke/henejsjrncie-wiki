@@ -12,9 +12,7 @@
         <h1>Welcome to henejsjrncie wiki!</h1>
         <p>This page contains documentation about “henejsjrncie,” the language we're developing.</p>
         <p>If you're interested in this project, please feel free to join our Discord server!</p>
-        <p><a href="https://discord.gg/T2q5R563P"
-             target="_blank"
-             rel="noopener noreferrer">join Discord server</a></p>
+        <p><a href="https://discord.gg/T2q5R563P" target="_blank" rel="noopener noreferrer">join Discord server</a></p>
 
         <h2>Start Here</h2>
         <p>This page contains the rules for this wiki and useful information for visitors.</p>
@@ -22,11 +20,25 @@
         <!-- 管理画面へのリンク -->
         <p><a href="/admin/" role="button">log in</a></p>
         <p>if you want to be our project member, you have to join our Discord server</p>
-        <p><a href="https://discord.gg/T2q5R563P"
-             target="_blank"
-             rel="noopener noreferrer">join Discord server</a></p>
-        
+        <p><a href="https://discord.gg/T2q5R563P" target="_blank" rel="noopener noreferrer">join Discord server</a></p>
+
     </main>
+
+    <!-- Netlify Identityのウィジェット -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <script>
+        // 招待リンクやログイン成功時のリダイレクト処理
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
